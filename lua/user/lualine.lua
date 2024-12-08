@@ -48,8 +48,10 @@ local location = {
 	padding = 0,
 }
 
-local codeium = function()
-  return vim.fn['codeium#GetStatusString']()
+local session = function()
+  local status_ok, autosession = pcall(require, "auto-session.lib")
+  if not status_ok then return "auto-session not found" end
+  return autosession.current_session_name()
 end
 
 -- cool function for progress
@@ -78,7 +80,7 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch, diagnostics },
 		lualine_b = { mode },
-		lualine_c = { codeium },
+		lualine_c = { session },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
