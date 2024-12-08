@@ -1,7 +1,14 @@
-local colorscheme = "catppuccin-mocha"
+vim.cmd.colorscheme = "catppuccin";
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+local status_ok, catppuccin = pcall(require, "catppuccin")
 if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
+  error("Cannot find catppuccin")
   return
 end
+
+catppuccin.setup({
+  flavour = "frappe"
+})
+
+vim.cmd.colorscheme = "catppuccin-frappe";
+print("Changed!")
