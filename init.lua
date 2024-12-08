@@ -19,17 +19,23 @@ require "user.bufferline"
 require "user.lualine"
 require "user.project"
 require "user.identline"
+
 -- require "user.whichkey"
 -- require "user.toggleterm"
+
 require "user.nvim-tree"
 require "user.dap"
 require "user.orgmode"
 require "user.autocmd"
+
 -- require "user.copilot"
+
 require "user.utils"
 require "user.neoclip"
 require "user.dressing"
+
 -- require "user.colorscheme"
 -- require "user.avante"
+
 require "user.codecompanion"
 
