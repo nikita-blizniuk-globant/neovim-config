@@ -71,9 +71,15 @@ keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope neoclip<cr>", opts)
 
--- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+local function toggle_minifiles()
+  if not MiniFiles.close() then MiniFiles.open() end
+end
+vim.keymap.set('n', '<leader>e', toggle_minifiles)
 
+local function toggle_minidiff_overlay()
+  MiniDiff.toggle_overlay()
+end
+vim.keymap.set('n', '<leader>go', toggle_minidiff_overlay)
 
 -- Debugger
 keymap("n", "<C-i>", "<cmd>lua require('dap').step_into()<cr>", opts)
@@ -86,3 +92,10 @@ keymap("n", "<C-p>", "<cmd>lua require('dap').toggle_breakpoint()<cr>", opts)
 -- vim.keymap.set('i', '<C-j>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
 -- vim.keymap.set('i', '<C-k>', function() return vim.fn['codeium#CycleCompletions']( -1) end, { expr = true })
 -- vim.keymap.set('i', '<C-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+
+-- Copilot
+keymap("i", "<M-J>", "<cmd>lua require('copilot.suggestion').next()<cr>", opts)
+keymap("i", "<M-K>", "<cmd>lua require('copilot.suggestion').prev()<cr>", opts)
+keymap("i", "<M-L>", "<cmd>lua require('copilot.suggestion').accept_line()<cr>", opts)
+keymap("i", "<M-H>", "<cmd>lua require('copilot.suggestion').dismiss()<cr>", opts)
+

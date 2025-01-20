@@ -82,7 +82,7 @@ lualine.setup({
 		lualine_b = { mode },
 		lualine_c = { session },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, spaces, "encoding", filetype },
+		lualine_x = { "copilot", diff, spaces, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},

@@ -61,6 +61,7 @@ return {
   },
   --]]
 
+  --[[
   {
     "olimorris/codecompanion.nvim",
     dependencies = {
@@ -69,4 +70,9 @@ return {
     },
     config = true
   }
+  --]]
+  {
+    "zbirenbaum/copilot.lua"
+  },
+  { 'AndreM222/copilot-lualine' }
 }
